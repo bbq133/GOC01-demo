@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="app.css?v=202605091">
-  <link rel="stylesheet" href="goc-settings-surface.css?v=20260509">
+  <link rel="stylesheet" href="app.css?v=202605093">
+  <link rel="stylesheet" href="goc-settings-surface.css?v=202605093">
 </head>
 <body>
   <div class="app">
@@ -1055,7 +1055,7 @@
               '<button type="button" class="btn-card-action btn-card-action--secondary btn-view-detail" data-id="' +
               escapeHtml(p.id) +
               '">查看配置</button>' +
-              '<button type="button" class="btn-card-action btn-card-action--primary btn-view-members" data-id="' +
+              '<button type="button" class="btn-card-action btn-card-action--primary btn-card-action--fullwidth btn-view-members" data-id="' +
               escapeHtml(p.id) +
               '">成员管理</button>'
             : '<p class="project-card-role-hint">您为本项目的<strong>普通成员</strong>，可查看顶部数据看板，但无法访问项目配置与成员管理。</p>';
@@ -1066,16 +1066,17 @@
             escapeHtml(p.id) +
             '">' +
             '<div class="project-card-inner">' +
-            '<div class="project-card-row project-card-row--title">' +
-            '<div class="project-card-title-block">' +
-            '<h3 class="project-card-name">' +
+            '<h3 class="project-card-name" title="' +
+            escapeHtml(formatProjectFullName(p)) +
+            '">' +
             escapeHtml(formatProjectFullName(p)) +
             '</h3>' +
+            '<div class="project-card-status-row">' +
             '<span class="project-card-origin-badge project-card-origin-badge--' +
             originMod +
             '">' +
             originLabel +
-            '</span></div>' +
+            '</span>' +
             '<div class="project-card-tags">' +
             initTag +
             gStatus +
