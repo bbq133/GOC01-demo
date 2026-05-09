@@ -1,0 +1,420 @@
+/* GOC login prototype — minimal */
+:root {
+  --primary: #1a56db;
+  --primary-hover: #1642a8;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --surface: #f3f4f6;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  background: #fff;
+  min-height: 100vh;
+}
+
+.login-layout {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 900px) {
+  .login-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .login-aside {
+    min-height: 200px;
+    order: -1;
+  }
+}
+
+.login-main {
+  padding: 48px 40px 80px;
+  max-width: 420px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.back-link {
+  font-size: 14px;
+  color: var(--primary);
+  text-decoration: none;
+  margin-bottom: 24px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.welcome {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* 必填星号：须高于 .field label 的灰色，避免被继承色盖住 */
+.field label span.req,
+.login-form .field label > .req {
+  color: #dc2626;
+  font-weight: 700;
+  margin-left: 2px;
+  -webkit-text-fill-color: #dc2626;
+}
+
+.field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.field input:focus {
+  outline: 2px solid rgba(26, 86, 219, 0.25);
+  border-color: var(--primary);
+}
+
+.captcha-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.captcha-row input {
+  flex: 1;
+}
+
+.captcha-placeholder {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--muted);
+  user-select: none;
+}
+
+.captcha-box-wrap {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.captcha-code-display {
+  min-width: 7.5em;
+  text-align: center;
+  font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, monospace;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text, #1a1a1a);
+  background: linear-gradient(165deg, #f0f2f8 0%, #e8ecf4 45%, #dfe5ef 100%);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px 10px 16px;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.captcha-code-display::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    115deg,
+    transparent,
+    transparent 6px,
+    rgba(255, 255, 255, 0.08) 6px,
+    rgba(255, 255, 255, 0.08) 7px
+  );
+  pointer-events: none;
+}
+
+.captcha-refresh {
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 13px;
+  color: var(--primary);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.captcha-refresh:hover {
+  color: var(--primary-hover);
+}
+
+.btn-login {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  background: var(--primary-hover);
+}
+
+.aux-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+.aux-row a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.aux-row a:hover {
+  text-decoration: underline;
+}
+
+.btn-google {
+  width: 100%;
+  margin-top: 24px;
+  padding: 11px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn-google:hover {
+  background: #f9fafb;
+}
+
+.google-hint {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.divider {
+  margin: 28px 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.staff-zone {
+  padding: 20px;
+  background: var(--surface);
+  border-radius: 10px;
+}
+
+.btn-feishu {
+  width: 100%;
+  padding: 11px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #00d6b9;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #00a884;
+  cursor: pointer;
+}
+
+.btn-feishu:hover {
+  background: #f0fffc;
+}
+
+.btn-feishu .feishu-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background: #00d6b9;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.feishu-hint {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.login-aside {
+  background: linear-gradient(160deg, #e8f0fe 0%, #f8fafc 45%, #fff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.login-aside-tag {
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.login-aside-slogan {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  max-width: 280px;
+  line-height: 1.5;
+}
+
+.login-aside-note {
+  margin-top: 24px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.field-check {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.field-check input {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.field-check label {
+  margin: 0;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.field-check a {
+  color: var(--primary);
+}
+
+.register-success-panel {
+  padding: 8px 0 24px;
+}
+
+.register-success-panel[hidden] {
+  display: none !important;
+}
+
+.success-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.success-body {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.success-body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.btn-login-link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.btn-login-link:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* 注册成功等场景的轻量 Toast（与登录/注册页共用） */
+.auth-toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  z-index: 99999;
+  max-width: min(360px, calc(100vw - 32px));
+  padding: 14px 20px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(26, 86, 219, 0.28);
+  text-align: center;
+  opacity: 0;
+  transform: translate(-50%, -10px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.auth-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.auth-toast[hidden] {
+  display: none !important;
+}
+
+.auth-toast__title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+}
