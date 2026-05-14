@@ -2326,6 +2326,60 @@
     </div>
   </div>
 </div>
+
+<!-- 项目准备状态页 (初始隐藏) -->
+<div id="project-status-page" class="status-page-container" style="display: none;">
+  <div class="status-banner">
+    <h2>项目准备中</h2>
+    <p>您的项目已成功创建，系统正在后台进行数据同步和模型训练。此过程可能需要一些时间，请耐心等待。</p>
+  </div>
+
+  <div class="vertical-stepper">
+    <!-- Node 1: 项目初始化 -->
+    <div class="v-step completed">
+      <div class="v-step-icon">✓</div>
+      <div class="v-step-content">
+        <h3>项目初始化</h3>
+        <p>创建项目档案，配置基础信息。</p>
+        <span class="v-step-time">已完成</span>
+      </div>
+    </div>
+
+    <!-- Node 2: 数据源同步 -->
+    <div class="v-step in-progress">
+      <div class="v-step-icon"><div class="spinner"></div></div>
+      <div class="v-step-content">
+        <h3>数据源同步 (GA4 & BigQuery)</h3>
+        <p>正在拉取历史行为数据，系统需要累积至少 7 天的数据以满足模型训练的最低要求。</p>
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: 45%;"></div>
+        </div>
+        <span class="v-step-time">预计还需 3 天</span>
+      </div>
+    </div>
+
+    <!-- Node 3: AI 模型训练 -->
+    <div class="v-step pending">
+      <div class="v-step-icon">3</div>
+      <div class="v-step-content">
+        <h3>AI 模型训练</h3>
+        <p>基于同步的数据训练 2.0/3.0 算法模型。若数据量不足将自动降级为兜底策略。</p>
+        <span class="v-step-time">等待前置任务完成</span>
+      </div>
+    </div>
+
+    <!-- Node 4: 报表生成 -->
+    <div class="v-step pending">
+      <div class="v-step-icon">4</div>
+      <div class="v-step-content">
+        <h3>数据看板与报表生成</h3>
+        <p>初始化项目专属的数据分析看板。</p>
+        <span class="v-step-time">等待前置任务完成</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 /* =========================================
    Onboarding Modal Logic
