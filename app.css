@@ -2177,3 +2177,353 @@ body {
 }
 
 /* 设置页「我的项目」等：见 goc-settings-surface.css（独立文件 + ?v= 防缓存） */
+
+/* =========================================
+   Onboarding Modal Styles
+   ========================================= */
+.onboarding-container {
+  max-width: 600px;
+  width: 90%;
+  border-radius: var(--radius, 8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  background: var(--bg-card, #ffffff);
+}
+
+.onboarding-container .modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border, #eee);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.onboarding-container .modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--text, #111827);
+}
+
+.onboarding-container .help-link {
+  font-size: 0.9rem;
+  color: var(--purple, #0056b3);
+  text-decoration: none;
+  margin-right: auto;
+  margin-left: 15px;
+}
+
+.onboarding-container .help-link:hover {
+  text-decoration: underline;
+  color: var(--purple-hover, #004494);
+}
+
+/* Stepper Indicator */
+.onboarding-container .stepper-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+.onboarding-container .stepper-indicator .step {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #888);
+  font-weight: 500;
+  position: relative;
+}
+
+.onboarding-container .stepper-indicator .step.active {
+  color: var(--purple, #0056b3);
+  font-weight: bold;
+}
+
+.onboarding-container .stepper-indicator .step-line {
+  flex-grow: 1;
+  height: 2px;
+  background-color: var(--border, #eee);
+  margin: 0 15px;
+}
+
+/* Step Content */
+.onboarding-container .step-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+  margin-bottom: 20px;
+  line-height: 1.5;
+  background: var(--bg-page, #f9f9f9);
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 4px solid var(--purple, #0056b3);
+}
+
+.onboarding-container .auth-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  background: var(--bg-page, #f8f9fa);
+  border: 1px dashed var(--border, #ccc);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.onboarding-container .auth-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+.onboarding-container .btn-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.onboarding-container .auth-status {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.onboarding-container .status-item {
+  margin: 8px 0;
+  color: var(--text, #333);
+}
+
+.onboarding-container .status-icon.success {
+  color: #28a745;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.onboarding-container .config-section {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border, #eee);
+}
+
+.onboarding-container .config-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.onboarding-container .config-section h4 {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  color: var(--text, #333);
+}
+
+.onboarding-container .config-question {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #555);
+  margin-bottom: 10px;
+}
+
+.onboarding-container .radio-group {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.onboarding-container .radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--text, #111827);
+}
+
+.onboarding-container .auth-action {
+  padding-left: 25px;
+}
+
+.onboarding-container .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border, #eee);
+}
+
+/* =========================================
+   Project Status Page Styles
+   ========================================= */
+.status-page-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.status-banner {
+  background: linear-gradient(135deg, var(--purple, #0056b3) 0%, #007bff 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.status-banner h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+}
+
+.status-banner p {
+  margin: 0;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.status-content {
+  background: var(--bg-card, #ffffff);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.status-title {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 1.25rem;
+  color: var(--text, #333);
+  border-bottom: 1px solid var(--border, #eee);
+  padding-bottom: 15px;
+}
+
+/* Vertical Stepper */
+.vertical-stepper {
+  position: relative;
+  padding-left: 10px;
+}
+
+.v-step {
+  display: flex;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.v-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 30px;
+  bottom: -30px;
+  width: 2px;
+  background-color: var(--border, #eee);
+  z-index: 0;
+}
+
+.v-step.completed:not(:last-child)::after {
+  background-color: #28a745;
+}
+
+.v-step:last-child {
+  margin-bottom: 0;
+}
+
+.v-step-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bg-card, #fff);
+  border: 2px solid var(--border, #ddd);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--text-secondary, #999);
+  z-index: 1;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.v-step.completed .v-step-icon {
+  border-color: #28a745;
+  background: #28a745;
+  color: white;
+}
+
+.v-step.in-progress .v-step-icon {
+  border-color: var(--purple, #0056b3);
+  color: var(--purple, #0056b3);
+}
+
+.v-step-content {
+  flex-grow: 1;
+  padding-top: 4px;
+}
+
+.v-step-title {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  color: var(--text, #333);
+  font-weight: 600;
+}
+
+.v-step-desc {
+  margin: 0 0 10px 0;
+  color: var(--text-secondary, #666);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.v-step-time {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #999);
+  display: inline-block;
+  background: var(--bg-page, #f5f5f5);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.v-step.in-progress .v-step-time {
+  color: #856404;
+  background: #fff3cd;
+}
+
+.v-step.completed .v-step-time {
+  color: #155724;
+  background: #d4edda;
+}
+
+.v-step-hint {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #888);
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+  height: 8px;
+  background: var(--border, #eee);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--purple, #0056b3);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 86, 179, 0.2);
+  border-top-color: var(--purple, #0056b3);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
