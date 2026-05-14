@@ -642,6 +642,7 @@
                   <input type="email" class="config-input member-email-input" id="member-email-input" placeholder="输入邮箱地址" />
                   <button type="button" class="btn-add-member" id="btn-add-member">添加</button>
                 </div>
+                <p class="invite-toast" id="invite-toast" hidden></p>
                 <table class="member-table" id="member-table">
                   <thead>
                     <tr><th>用户账号</th><th>角色</th><th>添加时间</th><th>操作</th></tr>
@@ -1077,6 +1078,7 @@
       var memberHint      = document.getElementById('member-hint');
       var memberTable     = document.getElementById('member-table');
       var memberInviteBlock = document.getElementById('member-invite-block');
+      var inviteToast       = document.getElementById('invite-toast');
       var memberInviteUrl = document.getElementById('member-invite-url');
       var btnCopyInvite   = document.getElementById('btn-copy-invite');
       var memberAddRowWrap = document.getElementById('member-add-row-wrap');
@@ -1549,25 +1551,32 @@
         if (memberHint) memberHint.hidden = true;
         var html = '';
         members.forEach(function (m, i) {
+          var isPending = m.status === 'pending';
           var isAdmin = m.role === 'admin';
           var isCreatorPerson = normalizeEmail(m.email) === creatorEm;
-          var badgeClass = isAdmin ? 'member-role-badge role-admin' : 'member-role-badge role-member-plain';
-          var label = isAdmin ? '管理员' : '普通成员';
-          if (isCreatorPerson) {
-            label = isAdmin ? '管理员（项目负责人）' : '普通成员（项目负责人）';
+          var isCurrentUser = normalizeEmail(m.email) === sess;
+          var badgeClass, label, ops;
+
+          if (isPending) {
+            badgeClass = 'member-role-badge role-pending';
+            label = '待加入';
+            ops = getProjectRole(proj, sess) === 'admin'
+              ? '<button type="button" class="btn-simulate-accept" data-email="' + escapeHtml(m.email) + '">模拟接受邀请</button>'
+                + '<button type="button" class="btn-revoke-invite" data-email="' + escapeHtml(m.email) + '">撤销邀请</button>'
+              : '—';
+          } else if (isAdmin) {
+            badgeClass = 'member-role-badge role-admin';
+            label = isCreatorPerson ? '管理员（项目负责人）' : '管理员';
+            ops = isCurrentUser ? '<span class="member-op-muted">当前帐号</span>' : '—';
+          } else {
+            badgeClass = 'member-role-badge role-member-plain';
+            label = isCreatorPerson ? '普通成员（项目负责人）' : '普通成员';
+            ops = getProjectRole(proj, sess) === 'admin'
+              ? '<button type="button" class="btn-transfer-admin" data-email="' + escapeHtml(m.email) + '">设为管理员</button>'
+                + '<button type="button" class="btn-remove-member" data-email="' + escapeHtml(m.email) + '">移除</button>'
+              : '—';
           }
-          var ops = '—';
-          if (isAdmin) {
-            ops = normalizeEmail(m.email) === sess ? '<span class="member-op-muted">当前帐号</span>' : '—';
-          } else if (getProjectRole(proj, sess) === 'admin') {
-            ops =
-              '<button type="button" class="btn-transfer-admin" data-email="' +
-              escapeHtml(m.email) +
-              '">设为管理员</button>' +
-              '<button type="button" class="btn-remove-member" data-email="' +
-              escapeHtml(m.email) +
-              '">移除</button>';
-          }
+
           html += '<tr>'
             + '<td>' + escapeHtml(m.email) + '</td>'
             + '<td><span class="' + badgeClass + '">' + escapeHtml(label) + '</span></td>'
@@ -1582,30 +1591,53 @@
         memberTableBody.querySelectorAll('.btn-transfer-admin').forEach(function (b) {
           b.addEventListener('click', function () { transferAdminTo(b.getAttribute('data-email')); });
         });
+        memberTableBody.querySelectorAll('.btn-simulate-accept').forEach(function (b) {
+          b.addEventListener('click', function () { acceptInvite(b.getAttribute('data-email')); });
+        });
+        memberTableBody.querySelectorAll('.btn-revoke-invite').forEach(function (b) {
+          b.addEventListener('click', function () { removeMember(b.getAttribute('data-email')); });
+        });
+      }
+
+      function showInviteToast(msg, type) {
+        if (!inviteToast) return;
+        inviteToast.textContent = msg;
+        inviteToast.className = 'invite-toast toast-' + type;
+        inviteToast.hidden = false;
+        if (type === 'success') {
+          clearTimeout(inviteToast._timer);
+          inviteToast._timer = setTimeout(function () {
+            inviteToast.hidden = true;
+          }, 2000);
+        }
       }
 
       function addMember() {
         if (!memberInput || !currentMemberProjectId) return;
         var email = normalizeEmail(memberInput.value);
-        if (!email) { alert('请输入邮箱地址'); return; }
+        if (!email) {
+          showInviteToast('请输入邮箱地址', 'error');
+          return;
+        }
         var d = loadData();
         var p = null;
         d.projects.forEach(function (x) { if (x.id === currentMemberProjectId) p = x; });
         if (!p) return;
-        if (getProjectRole(p, normalizeEmail(getSession().email)) !== 'admin') {
-          alert('仅管理员可添加成员。');
+        if (getProjectRole(p, normalizeEmail(getSession().email)) !== 'admin') return;
+        if (!p.members) p.members = [];
+        var exists = p.members.some(function (m) { return normalizeEmail(m.email) === email; });
+        if (exists) {
+          showInviteToast('该成员已存在', 'error');
           return;
         }
-        if (!p.members) p.members = [];
-        var exists = false;
-        p.members.forEach(function (m) { if (normalizeEmail(m.email) === email) exists = true; });
-        if (exists) { alert('该成员已存在'); return; }
         var now = new Date();
         var ts = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
-        p.members.push({ email: email, role: 'member', addedAt: ts });
+        p.members.push({ email: email, role: 'member', status: 'pending', addedAt: ts });
         saveData(d);
         memberInput.value = '';
+        if (inviteToast) inviteToast.hidden = true;
         renderMemberTable(p);
+        showInviteToast('已发送邀请：' + email, 'success');
       }
 
       function removeMember(targetEmailRaw) {
@@ -1632,6 +1664,21 @@
           return;
         }
         p.members.splice(ix, 1);
+        saveData(d);
+        renderMemberTable(p);
+      }
+
+      function acceptInvite(targetEmailRaw) {
+        if (currentMemberProjectId == null) return;
+        var targetEmail = normalizeEmail(targetEmailRaw);
+        var d = loadData();
+        var p = null;
+        d.projects.forEach(function (x) { if (x.id === currentMemberProjectId) p = x; });
+        if (!p || !p.members) return;
+        if (getProjectRole(p, normalizeEmail(getSession().email)) !== 'admin') return;
+        p.members.forEach(function (m) {
+          if (normalizeEmail(m.email) === targetEmail) m.status = 'active';
+        });
         saveData(d);
         renderMemberTable(p);
       }
@@ -1684,21 +1731,22 @@
         btnCopyInvite.addEventListener('click', function () {
           var v = memberInviteUrl.value || '';
           if (!v) return;
-          var done = function () { alert('邀请链接已复制，可粘贴给新同事。'); };
+          var done = function () {
+            btnCopyInvite.textContent = '已复制 ✓';
+            btnCopyInvite.disabled = true;
+            setTimeout(function () {
+              btnCopyInvite.textContent = '复制链接';
+              btnCopyInvite.disabled = false;
+            }, 2000);
+          };
           if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(v).then(done).catch(function () {
               memberInviteUrl.select();
-              try {
-                document.execCommand('copy');
-                done();
-              } catch (err) {}
+              try { document.execCommand('copy'); done(); } catch (err) {}
             });
           } else {
             memberInviteUrl.select();
-            try {
-              document.execCommand('copy');
-              done();
-            } catch (err) {}
+            try { document.execCommand('copy'); done(); } catch (err) {}
           }
         });
       }

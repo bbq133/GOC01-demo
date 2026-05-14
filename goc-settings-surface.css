@@ -684,6 +684,57 @@
   background: var(--purple-light);
 }
 
+/* ---- pending badge ---- */
+.member-role-badge.role-pending {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+/* ---- invite toast ---- */
+.invite-toast {
+  margin: 4px 0 8px;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: opacity 0.3s;
+}
+.invite-toast.toast-success {
+  background: #d1fae5;
+  color: #065f46;
+}
+.invite-toast.toast-error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ---- pending action buttons ---- */
+.btn-simulate-accept {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--purple);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-right: 4px;
+}
+.btn-simulate-accept:hover { background: #6d28d9; }
+.btn-revoke-invite {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  border-radius: 5px;
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.btn-revoke-invite:hover { background: #fef2f2; }
+
 .members-readonly-hint {
   font-size: 13px;
   color: var(--text-secondary);
