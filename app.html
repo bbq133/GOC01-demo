@@ -2407,6 +2407,33 @@ document.addEventListener('DOMContentLoaded', () => {
     updateStepUI();
   };
 
+  // 暴露给全局的函数，用于从向导切换到状态页
+  window.showStatusPage = function() {
+    // 隐藏主内容区（假设有一个 class 为 main-content 的容器，或者直接隐藏 dashboard 元素）
+    // 注意：这里需要根据实际的 DOM 结构调整，这里假设隐藏顶部导航和侧边栏
+    const topbar = document.querySelector('.topbar');
+    const sidebar = document.querySelector('.sidebar');
+    const dashboardContent = document.querySelector('.dashboard-content');
+    
+    if (topbar) topbar.style.pointerEvents = 'none'; // 禁用顶部导航
+    if (sidebar) sidebar.style.pointerEvents = 'none'; // 禁用侧边栏
+    if (dashboardContent) dashboardContent.style.display = 'none'; // 隐藏仪表盘内容
+
+    // 显示状态页
+    const statusPage = document.getElementById('preparation-status-page');
+    if (statusPage) {
+      statusPage.style.display = 'block';
+      
+      // 将项目名称更新到状态页标题
+      const projectNameInput = document.getElementById('ob-project-name');
+      const statusTitle = document.getElementById('status-project-name');
+      if (projectNameInput && statusTitle) {
+        const name = projectNameInput.value.trim() || '新项目';
+        statusTitle.innerText = `${name} - 数据初始化中`;
+      }
+    }
+  };
+
   if (closeBtn) {
     closeBtn.addEventListener('click', () => {
       onboardingModal.style.display = 'none';
