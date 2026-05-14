@@ -2401,20 +2401,25 @@ body {
   padding-left: 10px;
 }
 
-.vertical-stepper::before {
-  content: '';
-  position: absolute;
-  left: 24px;
-  top: 10px;
-  bottom: 20px;
-  width: 2px;
-  background-color: #eee;
-}
-
 .v-step {
   display: flex;
   margin-bottom: 30px;
   position: relative;
+}
+
+.v-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 30px;
+  bottom: -30px;
+  width: 2px;
+  background-color: #eee;
+  z-index: 0;
+}
+
+.v-step.completed:not(:last-child)::after {
+  background-color: #28a745;
 }
 
 .v-step:last-child {
