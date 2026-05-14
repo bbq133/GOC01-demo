@@ -7,14 +7,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="app.css?v=202605093">
-  <link rel="stylesheet" href="goc-settings-surface.css?v=202605093">
+  <link rel="stylesheet" href="app.css?v=202605115">
+  <link rel="stylesheet" href="goc-settings-surface.css?v=202605115">
 </head>
 <body>
   <div class="app">
     <aside class="sidebar" aria-label="主导航">
       <div class="sidebar-brand">GOC 01</div>
       <ul class="sidebar-nav">
+        <li>
+          <a href="#" data-panel="overview" id="nav-overview">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19V5"/>
+              <path d="M4 19h16"/>
+              <path d="M8 16V9"/>
+              <path d="M12 16V7"/>
+              <path d="M16 16v-5"/>
+              <path d="M20 16v-9"/>
+            </svg>
+            项目总览
+          </a>
+        </li>
         <li>
           <a href="#" class="is-active" data-panel="dashboard">
             <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -157,6 +170,182 @@
               </div>
             </div>
           </section>
+        </div>
+
+        <div id="panel-overview" class="panel" hidden>
+          <section class="overview-hero" aria-labelledby="overview-title">
+            <div>
+              <p class="overview-kicker">Advertising Intelligence</p>
+              <h1 id="overview-title">项目总览</h1>
+            </div>
+          </section>
+
+          <nav class="overview-tabs" aria-label="项目总览子导航">
+            <button type="button" class="overview-tab is-active" data-overview-tab="tab-ad-performance">
+              <svg class="overview-tab-icon" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 13.5V2.5a.5.5 0 0 1 1 0v10.5h11a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm3-2V8a.5.5 0 0 1 1 0v3.5a.5.5 0 0 1-1 0Zm2.5 0V5.5a.5.5 0 0 1 1 0V11.5a.5.5 0 0 1-1 0Zm2.5 0V7a.5.5 0 0 1 1 0v4.5a.5.5 0 0 1-1 0Zm2.5 0V4a.5.5 0 0 1 1 0v7.5a.5.5 0 0 1-1 0Z"/></svg>
+              <span>广告表现</span>
+            </button>
+            <button type="button" class="overview-tab" data-overview-tab="tab-daily-report">
+              <svg class="overview-tab-icon" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M3.5 2A1.5 1.5 0 0 0 2 3.5v9A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 12.5 2h-9Zm0 1h9a.5.5 0 0 1 .5.5V5H3V3.5a.5.5 0 0 1 .5-.5ZM3 6h10v6.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V6Zm1.75 1.75a.5.5 0 0 0 0 1h6.5a.5.5 0 0 0 0-1h-6.5Zm0 2.25a.5.5 0 0 0 0 1h4.5a.5.5 0 0 0 0-1h-4.5Z"/></svg>
+              <span>日报</span>
+            </button>
+            <button type="button" class="overview-tab" data-overview-tab="tab-weekly-report">
+              <svg class="overview-tab-icon" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M5 1.5a.5.5 0 0 1 1 0V2h4v-.5a.5.5 0 0 1 1 0V2h1.5A1.5 1.5 0 0 1 14 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 12.5v-9A1.5 1.5 0 0 1 3.5 2H5v-.5ZM3 6v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V6H3Zm0-1h10V3.5a.5.5 0 0 0-.5-.5H11v.5a.5.5 0 0 1-1 0V3H6v.5a.5.5 0 0 1-1 0V3H3.5a.5.5 0 0 0-.5.5V5Zm2 2.75a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5Zm2.75-.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1Zm2.25.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5Zm-5 2.25a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5Zm2.75-.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1Z"/></svg>
+              <span>周报</span>
+            </button>
+            <button type="button" class="overview-tab" data-overview-tab="tab-audience">
+              <svg class="overview-tab-icon" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M5.5 3.5a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm4.25 4.75a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0Zm1.75-2.75a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5ZM.75 5.25a1.75 1.75 0 1 1 3.5 0 1.75 1.75 0 0 1-3.5 0ZM2.5 2.5a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5Zm5 6.5c-2.485 0-4.5 1.567-4.5 3.5V14h9v-1.5c0-1.933-2.015-3.5-4.5-3.5Zm-3.5 3.5c0-1.247 1.439-2.5 3.5-2.5s3.5 1.253 3.5 2.5V13H4v-.5Zm9.5-2.5c-.55 0-1.07.077-1.547.22.353.39.612.86.756 1.388.246-.07.514-.108.791-.108 1.467 0 2.5.94 2.5 1.75V13h-3.022c.014.165.022.331.022.5V14H16v-1.25c0-1.583-1.835-2.75-3.5-2.75Zm-9 0c.55 0 1.07.077 1.547.22a3.875 3.875 0 0 0-.756 1.388A2.95 2.95 0 0 0 3.5 11C2.033 11 1 11.94 1 12.75V13h3.022c-.014.165-.022.331-.022.5V14H0v-1.25C0 11.167 1.835 10 3.5 10Z"/></svg>
+              <span>人群</span>
+            </button>
+            <button type="button" class="overview-tab" data-overview-tab="tab-creative">
+              <svg class="overview-tab-icon" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 1.5a6.5 6.5 0 1 0 0 13c.42 0 .75-.34.75-.75 0-.34-.18-.55-.32-.7-.13-.15-.18-.27-.18-.45 0-.41.33-.75.75-.75H10c2.21 0 4-1.79 4-4 0-3.31-2.69-6-6-6Zm-4 6.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm2.25-3a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm3.5 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm2.5 3a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
+              <span>素材表现</span>
+            </button>
+          </nav>
+
+          <div id="tab-ad-performance" class="overview-tab-panel">
+            <div class="overview-tab-toolbar">
+              <div class="platform-multiselect" id="platform-multiselect">
+                <label class="platform-multiselect-label">平台:</label>
+                <button type="button" class="platform-multiselect-trigger" id="platform-trigger" aria-haspopup="listbox" aria-expanded="false">
+                  <span class="platform-multiselect-text" id="platform-display">全部</span>
+                  <svg class="platform-multiselect-arrow" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 8L2 4h8z"/></svg>
+                </button>
+                <div class="platform-multiselect-dropdown" id="platform-dropdown" hidden>
+                  <label class="platform-option">
+                    <input type="checkbox" value="all" checked>
+                    <span>全部</span>
+                  </label>
+                  <label class="platform-option">
+                    <input type="checkbox" value="facebook">
+                    <span>Facebook</span>
+                  </label>
+                  <label class="platform-option">
+                    <input type="checkbox" value="google">
+                    <span>Google</span>
+                  </label>
+                  <label class="platform-option">
+                    <input type="checkbox" value="taboola">
+                    <span>Taboola</span>
+                  </label>
+                  <label class="platform-option">
+                    <input type="checkbox" value="bing">
+                    <span>Bing</span>
+                  </label>
+                  <label class="platform-option">
+                    <input type="checkbox" value="tiktok">
+                    <span>TikTok</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <section class="overview-section" aria-labelledby="business-outcome-title">
+              <div class="overview-section-header">
+                <div>
+                  <h2 id="business-outcome-title">经营成果</h2>
+                </div>
+                <button type="button" class="overview-chip-btn" id="btn-open-business-lines-inline">⚙ Business Lines</button>
+              </div>
+              <div class="overview-kpi-grid">
+                <article class="overview-kpi-card">
+                  <span class="overview-kpi-icon overview-kpi-icon--green">$</span>
+                  <span class="overview-kpi-trend up">↑ 12.3%</span>
+                  <p>GMV ACHIEVEMENT</p>
+                  <strong>$1,245,800</strong>
+                  <small>Target: $1,200,000 (已达成 103.8%)</small>
+                </article>
+                <article class="overview-kpi-card">
+                  <span class="overview-kpi-icon overview-kpi-icon--blue">◎</span>
+                  <span class="overview-kpi-trend up">↓ 2.1%</span>
+                  <p>ACOS</p>
+                  <strong>18.5%</strong>
+                  <small>Target: 22.0% (优于 3.5pp)</small>
+                </article>
+                <article class="overview-kpi-card">
+                  <span class="overview-kpi-icon overview-kpi-icon--purple">◷</span>
+                  <span class="overview-kpi-trend">↑ 5.2%</span>
+                  <p>SPEND PACING</p>
+                  <strong>$48,200</strong>
+                  <small>Target: $50,000 (结余 3.6%)</small>
+                </article>
+                <article class="overview-kpi-card">
+                  <span class="overview-kpi-icon overview-kpi-icon--orange">↗</span>
+                  <span class="overview-kpi-trend up">↑ 8.1%</span>
+                  <p>ROI EFFICIENCY</p>
+                  <strong>3.20x</strong>
+                  <small>Target: 2.80x (优于目标)</small>
+                </article>
+              </div>
+            </section>
+
+            <section class="overview-section" aria-labelledby="advertising-layers-title">
+              <div class="overview-section-header">
+                <div>
+                  <h2 id="advertising-layers-title">广告层级</h2>
+                </div>
+                <button type="button" class="overview-chip-btn" id="btn-open-layers-inline">⚙ Configure Layers</button>
+              </div>
+              <div class="overview-layer-grid">
+                <article class="overview-layer-card overview-layer-card--awareness">
+                  <p>AWARENESS</p>
+                  <dl>
+                    <div><dt>Impressions</dt><dd>2,450,000</dd></div>
+                    <div><dt>CPM</dt><dd>$8.40</dd></div>
+                    <div><dt>Spend</dt><dd>$20,580</dd></div>
+                  </dl>
+                </article>
+                <article class="overview-layer-card overview-layer-card--traffic">
+                  <p>TRAFFIC</p>
+                  <dl>
+                    <div><dt>CTR</dt><dd>1.85%</dd></div>
+                    <div><dt>CPC</dt><dd>$0.42</dd></div>
+                    <div><dt>Clicks</dt><dd>45,320</dd></div>
+                  </dl>
+                </article>
+                <article class="overview-layer-card overview-layer-card--conversion">
+                  <p>CONVERSION</p>
+                  <dl>
+                    <div><dt>ROI</dt><dd>3.20x</dd></div>
+                    <div><dt>Revenue</dt><dd>$156,400</dd></div>
+                    <div><dt>Spend</dt><dd>$48,200</dd></div>
+                  </dl>
+                </article>
+              </div>
+            </section>
+          </div>
+
+          <div id="tab-daily-report" class="overview-tab-panel" hidden>
+            <div class="overview-placeholder">
+              <span class="overview-placeholder-icon">📋</span>
+              <h2 class="overview-placeholder-title">日报</h2>
+              <p class="overview-placeholder-text">此功能即将上线，敬请期待</p>
+            </div>
+          </div>
+
+          <div id="tab-weekly-report" class="overview-tab-panel" hidden>
+            <div class="overview-placeholder">
+              <span class="overview-placeholder-icon">📅</span>
+              <h2 class="overview-placeholder-title">周报</h2>
+              <p class="overview-placeholder-text">此功能即将上线，敬请期待</p>
+            </div>
+          </div>
+
+          <div id="tab-audience" class="overview-tab-panel" hidden>
+            <div class="overview-placeholder">
+              <span class="overview-placeholder-icon">👥</span>
+              <h2 class="overview-placeholder-title">人群</h2>
+              <p class="overview-placeholder-text">此功能即将上线，敬请期待</p>
+            </div>
+          </div>
+
+          <div id="tab-creative" class="overview-tab-panel" hidden>
+            <div class="overview-placeholder">
+              <span class="overview-placeholder-icon">🎨</span>
+              <h2 class="overview-placeholder-title">素材表现</h2>
+              <p class="overview-placeholder-text">此功能即将上线，敬请期待</p>
+            </div>
+          </div>
         </div>
 
         <div id="panel-settings" class="panel" hidden>
@@ -466,6 +655,54 @@
         </div>
       </main>
     </div>
+  </div>
+  <div class="overview-modal-backdrop" id="business-lines-modal" hidden>
+    <section class="overview-modal overview-modal--large" role="dialog" aria-modal="true" aria-labelledby="business-lines-title">
+      <header class="overview-modal-header">
+        <div class="overview-modal-title-wrap">
+          <span class="overview-modal-icon" aria-hidden="true">⚙</span>
+          <div>
+            <h2 id="business-lines-title">Business Lines</h2>
+            <p>业务线配置管理</p>
+          </div>
+        </div>
+        <button type="button" class="overview-modal-close" data-close-modal aria-label="关闭 Ads Commander">×</button>
+      </header>
+      <div class="overview-modal-body">
+        <div class="business-line-list" id="business-line-list"></div>
+        <button type="button" class="business-line-add" id="btn-add-business-line">＋ Expand Business Domain / Add Business Line</button>
+      </div>
+      <footer class="overview-modal-footer">
+        <strong>Total Configured Budget: <span id="business-total-budget">$0</span></strong>
+        <div class="overview-modal-footer-actions">
+          <button type="button" class="overview-secondary-btn" data-close-modal>Cancel</button>
+          <button type="button" class="overview-primary-btn" data-close-modal>Synchronize Commander</button>
+        </div>
+      </footer>
+    </section>
+  </div>
+
+  <div class="overview-modal-backdrop" id="layers-modal" hidden>
+    <section class="overview-modal overview-modal--large" role="dialog" aria-modal="true" aria-labelledby="layers-title">
+      <header class="overview-modal-header">
+        <div>
+          <h2 id="layers-title">广告层级配置</h2>
+          <p>定义广告系列的层级分类规则</p>
+        </div>
+        <button type="button" class="overview-modal-close" data-close-modal aria-label="关闭广告层级配置">×</button>
+      </header>
+      <div class="overview-modal-body">
+        <p class="layers-info">如果广告系列不匹配任何规则，默认归类为 Conversion Layer。</p>
+        <div class="layer-config-list" id="layer-config-list"></div>
+      </div>
+      <footer class="overview-modal-footer">
+        <button type="button" class="overview-link-btn" id="btn-restore-layer-defaults">↻ 恢复默认规则</button>
+        <div class="overview-modal-footer-actions">
+          <button type="button" class="overview-secondary-btn" data-close-modal>取消</button>
+          <button type="button" class="overview-primary-btn" data-close-modal>保存</button>
+        </div>
+      </footer>
+    </section>
   </div>
   <div class="fab-mascot" title="原型助手" aria-hidden="true">🤖</div>
   <script>
@@ -804,6 +1041,7 @@
       }
 
       var dash = document.getElementById('panel-dashboard');
+      var overview = document.getElementById('panel-overview');
       var sett = document.getElementById('panel-settings');
       var navLinks = document.querySelectorAll('.sidebar-nav a[data-panel]');
       var projectSelect = document.getElementById('project-list');
@@ -881,6 +1119,7 @@
 
       function setView(name, opts) {
         if (dash) dash.hidden = (name !== 'dashboard');
+        if (overview) overview.hidden = (name !== 'overview');
         if (sett) sett.hidden = (name !== 'settings');
         navLinks.forEach(function (a) {
           a.classList.toggle('is-active', a.getAttribute('data-panel') === name);
@@ -896,6 +1135,16 @@
       }
       navLinks.forEach(function (a) {
         a.addEventListener('click', function (e) { e.preventDefault(); setView(a.getAttribute('data-panel')); });
+      });
+
+      var overviewTabs = document.querySelectorAll('.overview-tab[data-overview-tab]');
+      var overviewPanels = document.querySelectorAll('.overview-tab-panel');
+      overviewTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var target = tab.getAttribute('data-overview-tab');
+          overviewTabs.forEach(function (t) { t.classList.toggle('is-active', t === tab); });
+          overviewPanels.forEach(function (p) { p.hidden = (p.id !== target); });
+        });
       });
 
       function showSettingsView(vName, optProjectId) {
@@ -1517,9 +1766,426 @@
         });
       });
 
+      var businessModal = document.getElementById('business-lines-modal');
+      var layersModal = document.getElementById('layers-modal');
+      var businessListEl = document.getElementById('business-line-list');
+      var layerListEl = document.getElementById('layer-config-list');
+      var totalBudgetEl = document.getElementById('business-total-budget');
+      var overviewModalEls = [businessModal, layersModal];
+      var fieldOptions = ['Campaign Name', 'Ad Set Name', 'Ad Name'];
+      var conditionOptions = ['Contains', 'Exclude', 'Equals'];
+      var businessLineSeq = 3;
+      var ruleSeq = 10;
+
+      var businessLines = [
+        {
+          id: 'bl-ao',
+          name: 'AO',
+          analysisLevel: 'Campaign',
+          budgetAllocation: 5000,
+          kpiType: 'ROI',
+          targetValue: 5.5,
+          startDate: '',
+          endDate: '',
+          logic: 'OR',
+          rules: [
+            { id: 'r-ao-1', field: 'Campaign Name', condition: 'Contains', value: '-AO' },
+            { id: 'r-ao-2', field: 'Campaign Name', condition: 'Contains', value: '-CV' }
+          ]
+        },
+        {
+          id: 'bl-ai',
+          name: 'AI',
+          analysisLevel: 'Campaign',
+          budgetAllocation: 3000,
+          kpiType: 'CPC',
+          targetValue: 1.2,
+          startDate: '',
+          endDate: '',
+          logic: 'AND',
+          rules: [
+            { id: 'r-ai-1', field: 'Campaign Name', condition: 'Contains', value: '-AI' }
+          ]
+        }
+      ];
+
+      function defaultLayerState() {
+        return [
+          {
+            id: 'awareness',
+            icon: '🎯',
+            title: 'Awareness Layer（认知层）',
+            goal: '目标：提升品牌认知度、扩大曝光',
+            tone: 'awareness',
+            logic: 'AND',
+            rules: [{ id: 'r-aw-1', field: 'Campaign Name', condition: 'Contains', value: '-AW-' }]
+          },
+          {
+            id: 'traffic',
+            icon: '🚀',
+            title: 'Traffic Layer（流量层）',
+            goal: '目标：吸引用户点击、引导流量到网站',
+            tone: 'traffic',
+            logic: 'AND',
+            rules: [{ id: 'r-tr-1', field: 'Campaign Name', condition: 'Contains', value: '-TR-' }]
+          },
+          {
+            id: 'conversion',
+            icon: '💰',
+            title: 'Conversion Layer（转化层）',
+            goal: '目标：促进用户购买、提升转化率',
+            tone: 'conversion',
+            logic: 'AND',
+            rules: [{ id: 'r-cv-1', field: 'Campaign Name', condition: 'Contains', value: '-CV-' }]
+          }
+        ];
+      }
+
+      var adLayers = defaultLayerState();
+
+      function money(n) {
+        var num = Number(n) || 0;
+        return '$' + num.toLocaleString('en-US', { maximumFractionDigits: 0 });
+      }
+
+      function selectOptions(list, selected) {
+        return list.map(function (item) {
+          return '<option value="' + escapeHtml(item) + '"' + (item === selected ? ' selected' : '') + '>' + escapeHtml(item) + '</option>';
+        }).join('');
+      }
+
+      function renderLogicToggle(scope, ownerId, logic, ruleCount) {
+        if (ruleCount < 2) return '';
+        var desc = logic === 'AND' ? '所有规则都必须满足' : '满足任一规则即可';
+        return (
+          '<div class="rule-logic" data-scope="' + scope + '" data-owner-id="' + escapeHtml(ownerId) + '">' +
+            '<span>规则逻辑：</span>' +
+            '<button type="button" class="logic-toggle' + (logic === 'AND' ? ' is-active' : '') + '" data-action="set-logic" data-logic="AND">AND</button>' +
+            '<button type="button" class="logic-toggle' + (logic === 'OR' ? ' is-active' : '') + '" data-action="set-logic" data-logic="OR">OR</button>' +
+            '<span>' + desc + '</span>' +
+          '</div>'
+        );
+      }
+
+      function renderRules(scope, ownerId, rules, logic) {
+        return (
+          '<div class="rule-list">' +
+            rules.map(function (rule) {
+              return (
+                '<div class="rule-row" data-scope="' + scope + '" data-owner-id="' + escapeHtml(ownerId) + '" data-rule-id="' + escapeHtml(rule.id) + '">' +
+                  '<select data-rule-field="field" aria-label="规则字段">' + selectOptions(fieldOptions, rule.field) + '</select>' +
+                  '<select data-rule-field="condition" aria-label="规则条件">' + selectOptions(conditionOptions, rule.condition) + '</select>' +
+                  '<input type="text" data-rule-field="value" value="' + escapeHtml(rule.value || '') + '" placeholder="-AO、-CV" aria-label="匹配值">' +
+                  '<button type="button" class="icon-danger-btn" data-action="delete-rule" aria-label="删除规则">🗑</button>' +
+                '</div>'
+              );
+            }).join('') +
+          '</div>' +
+          renderLogicToggle(scope, ownerId, logic, rules.length)
+        );
+      }
+
+      function updateTotalBudget() {
+        var total = businessLines.reduce(function (sum, line) {
+          return sum + (Number(line.budgetAllocation) || 0);
+        }, 0);
+        if (totalBudgetEl) totalBudgetEl.textContent = money(total);
+      }
+
+      function findBusinessLine(id) {
+        for (var i = 0; i < businessLines.length; i++) {
+          if (businessLines[i].id === id) return businessLines[i];
+        }
+        return null;
+      }
+
+      function findLayer(id) {
+        for (var i = 0; i < adLayers.length; i++) {
+          if (adLayers[i].id === id) return adLayers[i];
+        }
+        return null;
+      }
+
+      function renderBusinessLines() {
+        if (!businessListEl) return;
+        businessListEl.innerHTML = businessLines.map(function (line) {
+          return (
+            '<article class="business-line-card" data-line-id="' + escapeHtml(line.id) + '">' +
+              '<div class="business-line-card-header">' +
+                '<input type="text" class="business-line-name-input" data-line-field="name" value="' + escapeHtml(line.name) + '" aria-label="业务线名称">' +
+                '<button type="button" class="icon-danger-btn" data-action="delete-business-line" aria-label="删除业务线">🗑</button>' +
+              '</div>' +
+              '<div class="business-line-fields">' +
+                '<div class="overview-field"><label>Analysis Level</label><select data-line-field="analysisLevel">' + selectOptions(['Campaign', 'AdSet', 'Ad'], line.analysisLevel) + '</select></div>' +
+                '<div class="overview-field"><label>Budget Allocation</label><input type="number" min="0" data-line-field="budgetAllocation" value="' + escapeHtml(line.budgetAllocation) + '"></div>' +
+                '<div class="overview-field"><label>KPI Type</label><select data-line-field="kpiType">' + selectOptions(['ROI', 'CPC', 'CPM'], line.kpiType) + '</select></div>' +
+                '<div class="overview-field"><label>Target Value</label><input type="number" step="0.01" data-line-field="targetValue" value="' + escapeHtml(line.targetValue) + '"></div>' +
+                '<div class="overview-field"><label>Campaign Start Date</label><input type="date" data-line-field="startDate" value="' + escapeHtml(line.startDate || '') + '"></div>' +
+                '<div class="overview-field"><label>Campaign End Date</label><input type="date" data-line-field="endDate" value="' + escapeHtml(line.endDate || '') + '"></div>' +
+              '</div>' +
+              '<div class="rule-section">' +
+                '<div class="rule-section-header"><span class="rule-section-title">Filtering Rules</span><button type="button" class="rule-add-btn" data-action="add-rule" data-scope="business">＋ Add Rule</button></div>' +
+                renderRules('business', line.id, line.rules, line.logic) +
+              '</div>' +
+            '</article>'
+          );
+        }).join('');
+        updateTotalBudget();
+      }
+
+      function renderLayers() {
+        if (!layerListEl) return;
+        layerListEl.innerHTML = adLayers.map(function (layer) {
+          return (
+            '<article class="layer-config-card layer-config-card--' + layer.tone + '" data-layer-id="' + escapeHtml(layer.id) + '">' +
+              '<div class="business-line-card-header">' +
+                '<div><h3 class="layer-config-title">' + layer.icon + ' ' + escapeHtml(layer.title) + '</h3><p class="layer-config-goal">' + escapeHtml(layer.goal) + '</p></div>' +
+              '</div>' +
+              '<div class="rule-section">' +
+                '<div class="rule-section-header"><span class="rule-section-title">筛选规则</span><button type="button" class="rule-add-btn" data-action="add-rule" data-scope="layer">＋ 添加规则</button></div>' +
+                renderRules('layer', layer.id, layer.rules, layer.logic) +
+              '</div>' +
+            '</article>'
+          );
+        }).join('');
+      }
+
+      function openModal(modal) {
+        if (!modal) return;
+        renderBusinessLines();
+        renderLayers();
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModals() {
+        overviewModalEls.forEach(function (modal) {
+          if (modal) modal.hidden = true;
+        });
+        document.body.style.overflow = '';
+      }
+
+      function addRuleToOwner(scope, ownerId) {
+        var owner = scope === 'business' ? findBusinessLine(ownerId) : findLayer(ownerId);
+        if (!owner) return;
+        ruleSeq += 1;
+        owner.rules.push({ id: 'r-demo-' + ruleSeq, field: 'Campaign Name', condition: 'Contains', value: '' });
+        if (scope === 'business') renderBusinessLines();
+        else renderLayers();
+      }
+
+      function deleteRuleFromOwner(scope, ownerId, ruleId) {
+        var owner = scope === 'business' ? findBusinessLine(ownerId) : findLayer(ownerId);
+        if (!owner || owner.rules.length <= 1) return;
+        owner.rules = owner.rules.filter(function (rule) { return rule.id !== ruleId; });
+        if (scope === 'business') renderBusinessLines();
+        else renderLayers();
+      }
+
+      function updateRule(scope, ownerId, ruleId, field, value) {
+        var owner = scope === 'business' ? findBusinessLine(ownerId) : findLayer(ownerId);
+        if (!owner) return;
+        owner.rules.forEach(function (rule) {
+          if (rule.id === ruleId) rule[field] = value;
+        });
+      }
+
+      ['btn-open-business-lines', 'btn-open-business-lines-inline'].forEach(function (id) {
+        var btn = document.getElementById(id);
+        if (btn) btn.addEventListener('click', function () { openModal(businessModal); });
+      });
+      ['btn-open-layers', 'btn-open-layers-inline'].forEach(function (id) {
+        var btn = document.getElementById(id);
+        if (btn) btn.addEventListener('click', function () { openModal(layersModal); });
+      });
+
+      overviewModalEls.forEach(function (modal) {
+        if (!modal) return;
+        modal.addEventListener('click', function (e) {
+          var target = e.target;
+          if (target === modal || target.hasAttribute('data-close-modal')) {
+            closeModals();
+          }
+        });
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModals();
+      });
+
+      if (document.getElementById('btn-add-business-line')) {
+        document.getElementById('btn-add-business-line').addEventListener('click', function () {
+          businessLineSeq += 1;
+          businessLines.push({
+            id: 'bl-new-' + businessLineSeq,
+            name: 'New Line ' + businessLineSeq,
+            analysisLevel: 'Campaign',
+            budgetAllocation: 0,
+            kpiType: 'ROI',
+            targetValue: 0,
+            startDate: '',
+            endDate: '',
+            logic: 'AND',
+            rules: [{ id: 'r-new-' + businessLineSeq, field: 'Campaign Name', condition: 'Contains', value: '' }]
+          });
+          renderBusinessLines();
+        });
+      }
+
+      if (businessListEl) {
+        businessListEl.addEventListener('input', function (e) {
+          var card = e.target.closest('[data-line-id]');
+          if (!card) return;
+          var line = findBusinessLine(card.getAttribute('data-line-id'));
+          if (!line) return;
+          var field = e.target.getAttribute('data-line-field');
+          if (field) {
+            line[field] = e.target.type === 'number' ? Number(e.target.value) : e.target.value;
+            if (field === 'budgetAllocation') updateTotalBudget();
+          }
+          var ruleRow = e.target.closest('.rule-row');
+          var ruleField = e.target.getAttribute('data-rule-field');
+          if (ruleRow && ruleField) {
+            updateRule('business', ruleRow.getAttribute('data-owner-id'), ruleRow.getAttribute('data-rule-id'), ruleField, e.target.value);
+          }
+        });
+        businessListEl.addEventListener('change', function (e) {
+          var ruleRow = e.target.closest('.rule-row');
+          var ruleField = e.target.getAttribute('data-rule-field');
+          if (ruleRow && ruleField) {
+            updateRule('business', ruleRow.getAttribute('data-owner-id'), ruleRow.getAttribute('data-rule-id'), ruleField, e.target.value);
+            return;
+          }
+          var card = e.target.closest('[data-line-id]');
+          var field = e.target.getAttribute('data-line-field');
+          if (!card || !field) return;
+          var line = findBusinessLine(card.getAttribute('data-line-id'));
+          if (line) line[field] = e.target.value;
+        });
+        businessListEl.addEventListener('click', function (e) {
+          var action = e.target.getAttribute('data-action');
+          if (!action) return;
+          var card = e.target.closest('[data-line-id]');
+          var row = e.target.closest('.rule-row');
+          var owner = e.target.closest('[data-owner-id]');
+          if (action === 'delete-business-line' && card) {
+            businessLines = businessLines.filter(function (line) { return line.id !== card.getAttribute('data-line-id'); });
+            renderBusinessLines();
+          }
+          if (action === 'add-rule' && card) addRuleToOwner('business', card.getAttribute('data-line-id'));
+          if (action === 'delete-rule' && row) deleteRuleFromOwner('business', row.getAttribute('data-owner-id'), row.getAttribute('data-rule-id'));
+          if (action === 'set-logic' && owner) {
+            var line = findBusinessLine(owner.getAttribute('data-owner-id'));
+            if (line) line.logic = e.target.getAttribute('data-logic') || line.logic;
+            renderBusinessLines();
+          }
+        });
+      }
+
+      if (layerListEl) {
+        layerListEl.addEventListener('input', function (e) {
+          var row = e.target.closest('.rule-row');
+          var ruleField = e.target.getAttribute('data-rule-field');
+          if (row && ruleField) {
+            updateRule('layer', row.getAttribute('data-owner-id'), row.getAttribute('data-rule-id'), ruleField, e.target.value);
+          }
+        });
+        layerListEl.addEventListener('change', function (e) {
+          var row = e.target.closest('.rule-row');
+          var ruleField = e.target.getAttribute('data-rule-field');
+          if (row && ruleField) {
+            updateRule('layer', row.getAttribute('data-owner-id'), row.getAttribute('data-rule-id'), ruleField, e.target.value);
+          }
+        });
+        layerListEl.addEventListener('click', function (e) {
+          var action = e.target.getAttribute('data-action');
+          if (!action) return;
+          var card = e.target.closest('[data-layer-id]');
+          var row = e.target.closest('.rule-row');
+          var owner = e.target.closest('[data-owner-id]');
+          if (action === 'add-rule' && card) addRuleToOwner('layer', card.getAttribute('data-layer-id'));
+          if (action === 'delete-rule' && row) deleteRuleFromOwner('layer', row.getAttribute('data-owner-id'), row.getAttribute('data-rule-id'));
+          if (action === 'set-logic' && owner) {
+            var layer = findLayer(owner.getAttribute('data-owner-id'));
+            if (layer) layer.logic = e.target.getAttribute('data-logic') || layer.logic;
+            renderLayers();
+          }
+        });
+      }
+
+      if (document.getElementById('btn-restore-layer-defaults')) {
+        document.getElementById('btn-restore-layer-defaults').addEventListener('click', function () {
+          adLayers = defaultLayerState();
+          renderLayers();
+        });
+      }
+
+      renderBusinessLines();
+      renderLayers();
       syncSessionUI();
       renderTopBarSelect();
       setView('dashboard');
+
+      /* —— 平台多选下拉 —— */
+      var platformTrigger = document.getElementById('platform-trigger');
+      var platformDropdown = document.getElementById('platform-dropdown');
+      var platformDisplay = document.getElementById('platform-display');
+      var platformWrap = document.getElementById('platform-multiselect');
+
+      if (platformTrigger && platformDropdown && platformDisplay) {
+        var platformNames = { facebook: 'Facebook', google: 'Google', taboola: 'Taboola', bing: 'Bing', tiktok: 'TikTok' };
+
+        platformTrigger.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var open = platformDropdown.hidden;
+          platformDropdown.hidden = !open;
+          platformTrigger.setAttribute('aria-expanded', String(open));
+        });
+
+        platformDropdown.addEventListener('change', function (e) {
+          var target = e.target;
+          if (target.type !== 'checkbox') return;
+          var checkboxes = platformDropdown.querySelectorAll('input[type="checkbox"]');
+          var allBox = platformDropdown.querySelector('input[value="all"]');
+          var itemBoxes = Array.prototype.slice.call(checkboxes).filter(function (cb) { return cb.value !== 'all'; });
+
+          if (target.value === 'all') {
+            itemBoxes.forEach(function (cb) { cb.checked = false; });
+            if (!allBox.checked) allBox.checked = true;
+          } else {
+            if (allBox) allBox.checked = false;
+            var anyChecked = itemBoxes.some(function (cb) { return cb.checked; });
+            if (!anyChecked && allBox) {
+              allBox.checked = true;
+            }
+          }
+          updatePlatformDisplay();
+        });
+
+        function updatePlatformDisplay() {
+          var checkboxes = platformDropdown.querySelectorAll('input[type="checkbox"]');
+          var allBox = platformDropdown.querySelector('input[value="all"]');
+          if (allBox && allBox.checked) {
+            platformDisplay.textContent = '全部';
+            return;
+          }
+          var selected = [];
+          checkboxes.forEach(function (cb) {
+            if (cb.checked && cb.value !== 'all') {
+              selected.push(platformNames[cb.value] || cb.value);
+            }
+          });
+          platformDisplay.textContent = selected.length ? selected.join(', ') : '全部';
+          if (!selected.length && allBox) allBox.checked = true;
+        }
+
+        document.addEventListener('click', function (e) {
+          if (platformWrap && !platformWrap.contains(e.target)) {
+            platformDropdown.hidden = true;
+            platformTrigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
     })();
   </script>
 </body>
