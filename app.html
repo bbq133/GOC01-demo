@@ -2395,6 +2395,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
+      // Step 1 validation
+      if (currentStep === 1) {
+        const nameElem = document.getElementById('ob-project-name');
+        if (nameElem && !nameElem.value.trim()) {
+          alert('请输入项目名称');
+          return;
+        }
+      }
+      
+      // Step 2 mock auth display
+      if (currentStep === 2) {
+        const authStatus = document.getElementById('ob-core-auth-status');
+        if (authStatus) {
+          authStatus.style.display = 'block';
+        }
+      }
+
       if (currentStep < totalSteps) {
         currentStep++;
         updateStepUI();
@@ -2428,10 +2445,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const adsAuthAction = document.getElementById('ads-auth-action');
   adsRadios.forEach(radio => {
     radio.addEventListener('change', (e) => {
-      if (e.target.value === 'yes') {
-        adsAuthAction.style.display = 'block';
-      } else {
-        adsAuthAction.style.display = 'none';
+      if (adsAuthAction) {
+        if (e.target.value === 'yes') {
+          adsAuthAction.style.display = 'block';
+        } else {
+          adsAuthAction.style.display = 'none';
+        }
       }
     });
   });
@@ -2440,10 +2459,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const gtmAuthAction = document.getElementById('gtm-auth-action');
   gtmRadios.forEach(radio => {
     radio.addEventListener('change', (e) => {
-      if (e.target.value === 'yes') {
-        gtmAuthAction.style.display = 'block';
-      } else {
-        gtmAuthAction.style.display = 'none';
+      if (gtmAuthAction) {
+        if (e.target.value === 'yes') {
+          gtmAuthAction.style.display = 'block';
+        } else {
+          gtmAuthAction.style.display = 'none';
+        }
       }
     });
   });
