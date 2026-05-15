@@ -1,0 +1,94 @@
+<h2>Tab 栏位置（已更新）</h2>
+<p class="subtitle">平台选择器只属于「广告表现」Tab，不再放在全局 Hero 区域。<br>现在 Hero 区域只剩标题，Tab 栏该怎么放？</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1a1a2e; border-radius:6px; padding:12px; font-size:11px; color:#999;">
+        <!-- Hero (simplified) -->
+        <div style="background:#252540; border-radius:6px; padding:10px 12px; margin-bottom:10px;">
+          <div style="font-size:8px; color:#7c3aed;">Advertising Intelligence</div>
+          <div style="font-size:13px; color:#fff; font-weight:600;">项目总览</div>
+        </div>
+        <!-- Tab bar -->
+        <div style="display:flex; gap:2px; margin-bottom:10px; border-bottom:1px solid #333; padding-bottom:6px;">
+          <span style="background:#7c3aed; color:#fff; padding:5px 12px; border-radius:6px 6px 0 0; font-size:10px;">广告表现</span>
+          <span style="padding:5px 12px; font-size:10px; opacity:0.5;">日报</span>
+          <span style="padding:5px 12px; font-size:10px; opacity:0.5;">周报</span>
+          <span style="padding:5px 12px; font-size:10px; opacity:0.5;">人群</span>
+          <span style="padding:5px 12px; font-size:10px; opacity:0.5;">素材</span>
+        </div>
+        <!-- Content with platform selector INSIDE tab -->
+        <div style="display:flex; justify-content:flex-end; margin-bottom:6px;">
+          <span style="font-size:9px; color:#888; background:#33333388; padding:3px 8px; border-radius:4px;">平台: 全部 ▾</span>
+        </div>
+        <div style="background:#252540; border-radius:4px; padding:12px; text-align:center; color:#666; font-size:10px;">
+          经营成果 + 广告层级
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. 保留 Hero + Tab 在下</h3>
+      <p>保留完整 Hero（副标题 + 标题），Tab 栏在下方。平台选择器移入广告表现 Tab 内部。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1a1a2e; border-radius:6px; padding:12px; font-size:11px; color:#999;">
+        <!-- Title row -->
+        <div style="margin-bottom:8px;">
+          <div style="font-size:13px; color:#fff; font-weight:600;">项目总览</div>
+        </div>
+        <!-- Tab bar -->
+        <div style="display:flex; gap:2px; margin-bottom:10px; border-bottom:1px solid #333; padding-bottom:6px;">
+          <span style="background:#7c3aed; color:#fff; padding:5px 12px; border-radius:6px 6px 0 0; font-size:10px;">广告表现</span>
+          <span style="padding:5px 12px; font-size:10px; opacity:0.5;">日报</span>
+          <span style="padding:5px 12px; font-size:10px; opacity:0.5;">周报</span>
+          <span style="padding:5px 12px; font-size:10px; opacity:0.5;">人群</span>
+          <span style="padding:5px 12px; font-size:10px; opacity:0.5;">素材</span>
+        </div>
+        <!-- Content with platform selector INSIDE tab -->
+        <div style="display:flex; justify-content:flex-end; margin-bottom:6px;">
+          <span style="font-size:9px; color:#888; background:#33333388; padding:3px 8px; border-radius:4px;">平台: 全部 ▾</span>
+        </div>
+        <div style="background:#252540; border-radius:4px; padding:16px; text-align:center; color:#666; font-size:10px;">
+          经营成果 + 广告层级
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. 简洁标题 + Tab</h3>
+      <p>去掉 Hero 装饰，只留「项目总览」标题，Tab 紧跟其后。更紧凑。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1a1a2e; border-radius:6px; padding:12px; font-size:11px; color:#999;">
+        <!-- Title + Tabs same row -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; border-bottom:1px solid #333; padding-bottom:8px;">
+          <div style="font-size:13px; color:#fff; font-weight:600;">项目总览</div>
+          <div style="display:flex; gap:2px;">
+            <span style="background:#7c3aed; color:#fff; padding:4px 10px; border-radius:4px; font-size:10px;">广告表现</span>
+            <span style="padding:4px 10px; font-size:10px; opacity:0.5;">日报</span>
+            <span style="padding:4px 10px; font-size:10px; opacity:0.5;">周报</span>
+            <span style="padding:4px 10px; font-size:10px; opacity:0.5;">人群</span>
+            <span style="padding:4px 10px; font-size:10px; opacity:0.5;">素材</span>
+          </div>
+        </div>
+        <!-- Content with platform selector INSIDE tab -->
+        <div style="display:flex; justify-content:flex-end; margin-bottom:6px;">
+          <span style="font-size:9px; color:#888; background:#33333388; padding:3px 8px; border-radius:4px;">平台: 全部 ▾</span>
+        </div>
+        <div style="background:#252540; border-radius:4px; padding:20px; text-align:center; color:#666; font-size:10px;">
+          经营成果 + 广告层级（最大化空间）
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C. 标题与 Tab 同行</h3>
+      <p>标题左、Tab 右，一行搞定。内容区域最大化。</p>
+    </div>
+  </div>
+</div>

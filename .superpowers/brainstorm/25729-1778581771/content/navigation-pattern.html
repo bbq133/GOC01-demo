@@ -1,0 +1,154 @@
+<h2>项目总览 — 子板块导航模式</h2>
+<p class="subtitle">当前有「经营成果 + 广告层级」属于广告表现概览，后续还需放置日报、周报、人群、素材表现等板块。<br>选择一种你认为最合适的整体组织方式：</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Tab 页签切换</h3>
+      <p>顶部放一排 Tab 标签（广告表现 | 日报 | 周报 | 人群 | 素材），点击切换内容区域。每个 Tab 下是独立的完整视图。</p>
+      <div style="margin-top:12px; background:#1a1a2e; border-radius:8px; padding:16px; font-size:13px; color:#999;">
+        <div style="display:flex; gap:4px; margin-bottom:16px; border-bottom:1px solid #333; padding-bottom:8px;">
+          <span style="background:#7c3aed; color:#fff; padding:6px 14px; border-radius:6px 6px 0 0; font-size:12px;">广告表现</span>
+          <span style="padding:6px 14px; font-size:12px; opacity:0.6;">日报</span>
+          <span style="padding:6px 14px; font-size:12px; opacity:0.6;">周报</span>
+          <span style="padding:6px 14px; font-size:12px; opacity:0.6;">人群</span>
+          <span style="padding:6px 14px; font-size:12px; opacity:0.6;">素材表现</span>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:12px;">
+          <div style="background:#252540; border-radius:6px; padding:10px; text-align:center;">
+            <div style="font-size:10px; color:#888;">GMV</div>
+            <div style="color:#a78bfa; font-size:14px; font-weight:600;">$1.24M</div>
+          </div>
+          <div style="background:#252540; border-radius:6px; padding:10px; text-align:center;">
+            <div style="font-size:10px; color:#888;">ACOS</div>
+            <div style="color:#60a5fa; font-size:14px; font-weight:600;">18.5%</div>
+          </div>
+          <div style="background:#252540; border-radius:6px; padding:10px; text-align:center;">
+            <div style="font-size:10px; color:#888;">SPEND</div>
+            <div style="color:#c084fc; font-size:14px; font-weight:600;">$48.2K</div>
+          </div>
+          <div style="background:#252540; border-radius:6px; padding:10px; text-align:center;">
+            <div style="font-size:10px; color:#888;">ROI</div>
+            <div style="color:#fb923c; font-size:14px; font-weight:600;">3.20x</div>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px;">
+          <div style="background:#252540; border-radius:6px; padding:10px; text-align:center;">
+            <div style="font-size:10px; color:#888;">AWARENESS</div>
+            <div style="height:2px; background:#34d399; margin-top:6px; border-radius:2px;"></div>
+          </div>
+          <div style="background:#252540; border-radius:6px; padding:10px; text-align:center;">
+            <div style="font-size:10px; color:#888;">TRAFFIC</div>
+            <div style="height:2px; background:#60a5fa; margin-top:6px; border-radius:2px;"></div>
+          </div>
+          <div style="background:#252540; border-radius:6px; padding:10px; text-align:center;">
+            <div style="font-size:10px; color:#888;">CONVERSION</div>
+            <div style="height:2px; background:#f59e0b; margin-top:6px; border-radius:2px;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="pros-cons" style="margin-top:12px;">
+        <div class="pros"><h4>优点</h4><ul><li>板块之间完全独立，不互相干扰</li><li>每个 Tab 可以有自己的布局和数据</li><li>未来新增板块只需加 Tab，扩展性好</li></ul></div>
+        <div class="cons"><h4>考虑</h4><ul><li>同一时间只能看到一个板块</li><li>Tab 过多时需考虑滚动/折叠</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>纵向滚动 + 锚点快速跳转</h3>
+      <p>所有板块纵向排列在一个长页面上，顶部有一排锚点导航条，点击可快速滚动到对应板块。</p>
+      <div style="margin-top:12px; background:#1a1a2e; border-radius:8px; padding:16px; font-size:13px; color:#999;">
+        <div style="display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;">
+          <span style="background:#7c3aed33; color:#a78bfa; padding:4px 10px; border-radius:12px; font-size:11px; border:1px solid #7c3aed55;">📊 广告表现</span>
+          <span style="background:#33333366; color:#888; padding:4px 10px; border-radius:12px; font-size:11px; border:1px solid #44444466;">📋 日报</span>
+          <span style="background:#33333366; color:#888; padding:4px 10px; border-radius:12px; font-size:11px; border:1px solid #44444466;">📅 周报</span>
+          <span style="background:#33333366; color:#888; padding:4px 10px; border-radius:12px; font-size:11px; border:1px solid #44444466;">👥 人群</span>
+          <span style="background:#33333366; color:#888; padding:4px 10px; border-radius:12px; font-size:11px; border:1px solid #44444466;">🎨 素材</span>
+        </div>
+        <div style="border-left:2px solid #7c3aed; padding-left:12px; margin-bottom:12px;">
+          <div style="font-size:11px; color:#a78bfa; margin-bottom:6px;">▸ 广告表现概览</div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:4px; margin-bottom:8px;">
+            <div style="background:#252540; border-radius:4px; padding:6px; text-align:center; font-size:10px;">KPI 1</div>
+            <div style="background:#252540; border-radius:4px; padding:6px; text-align:center; font-size:10px;">KPI 2</div>
+            <div style="background:#252540; border-radius:4px; padding:6px; text-align:center; font-size:10px;">KPI 3</div>
+            <div style="background:#252540; border-radius:4px; padding:6px; text-align:center; font-size:10px;">KPI 4</div>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:4px;">
+            <div style="background:#252540; border-radius:4px; padding:6px; text-align:center; font-size:10px;">层级 1</div>
+            <div style="background:#252540; border-radius:4px; padding:6px; text-align:center; font-size:10px;">层级 2</div>
+            <div style="background:#252540; border-radius:4px; padding:6px; text-align:center; font-size:10px;">层级 3</div>
+          </div>
+        </div>
+        <div style="border-left:2px solid #444; padding-left:12px; margin-bottom:12px;">
+          <div style="font-size:11px; color:#888; margin-bottom:6px;">▸ 日报</div>
+          <div style="background:#252540; border-radius:4px; padding:12px; text-align:center; font-size:10px; color:#666;">日报内容区域...</div>
+        </div>
+        <div style="border-left:2px solid #444; padding-left:12px; margin-bottom:12px;">
+          <div style="font-size:11px; color:#888; margin-bottom:6px;">▸ 周报</div>
+          <div style="background:#252540; border-radius:4px; padding:12px; text-align:center; font-size:10px; color:#666;">周报内容区域...</div>
+        </div>
+        <div style="font-size:10px; color:#555; text-align:center;">⋮ 继续滚动可见更多板块</div>
+      </div>
+      <div class="pros-cons" style="margin-top:12px;">
+        <div class="pros"><h4>优点</h4><ul><li>一览无余，能同时感知所有板块的存在</li><li>快速上下浏览、对比不同板块</li><li>实现简单，不需要状态管理</li></ul></div>
+        <div class="cons"><h4>考虑</h4><ul><li>板块多了页面会很长</li><li>每个板块的数据都需一次性加载</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>混合模式：摘要概览 + Tab 详情</h3>
+      <p>顶部保持核心 KPI 摘要卡片（始终可见），下方用 Tab 切换不同的详情板块。</p>
+      <div style="margin-top:12px; background:#1a1a2e; border-radius:8px; padding:16px; font-size:13px; color:#999;">
+        <div style="font-size:11px; color:#a78bfa; margin-bottom:6px;">≡ 核心指标（始终可见）</div>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-bottom:16px;">
+          <div style="background:#252540; border-radius:6px; padding:8px; text-align:center;">
+            <div style="font-size:9px; color:#888;">GMV</div>
+            <div style="color:#a78bfa; font-size:13px; font-weight:600;">$1.24M</div>
+          </div>
+          <div style="background:#252540; border-radius:6px; padding:8px; text-align:center;">
+            <div style="font-size:9px; color:#888;">ACOS</div>
+            <div style="color:#60a5fa; font-size:13px; font-weight:600;">18.5%</div>
+          </div>
+          <div style="background:#252540; border-radius:6px; padding:8px; text-align:center;">
+            <div style="font-size:9px; color:#888;">SPEND</div>
+            <div style="color:#c084fc; font-size:13px; font-weight:600;">$48.2K</div>
+          </div>
+          <div style="background:#252540; border-radius:6px; padding:8px; text-align:center;">
+            <div style="font-size:9px; color:#888;">ROI</div>
+            <div style="color:#fb923c; font-size:13px; font-weight:600;">3.20x</div>
+          </div>
+        </div>
+        <div style="border-top:1px solid #333; padding-top:12px;">
+          <div style="display:flex; gap:4px; margin-bottom:12px; border-bottom:1px solid #333; padding-bottom:8px;">
+            <span style="background:#7c3aed; color:#fff; padding:5px 12px; border-radius:6px 6px 0 0; font-size:11px;">广告层级</span>
+            <span style="padding:5px 12px; font-size:11px; opacity:0.6;">日报</span>
+            <span style="padding:5px 12px; font-size:11px; opacity:0.6;">周报</span>
+            <span style="padding:5px 12px; font-size:11px; opacity:0.6;">人群</span>
+            <span style="padding:5px 12px; font-size:11px; opacity:0.6;">素材</span>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px;">
+            <div style="background:#252540; border-radius:6px; padding:10px; text-align:center;">
+              <div style="font-size:10px; color:#34d399;">AWARENESS</div>
+            </div>
+            <div style="background:#252540; border-radius:6px; padding:10px; text-align:center;">
+              <div style="font-size:10px; color:#60a5fa;">TRAFFIC</div>
+            </div>
+            <div style="background:#252540; border-radius:6px; padding:10px; text-align:center;">
+              <div style="font-size:10px; color:#f59e0b;">CONVERSION</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pros-cons" style="margin-top:12px;">
+        <div class="pros"><h4>优点</h4><ul><li>核心 KPI 始终可见，不会被 Tab 切换遮挡</li><li>「经营成果」提升为全局摘要，地位更突出</li><li>其他板块在 Tab 里切换，互不干扰</li></ul></div>
+        <div class="cons"><h4>考虑</h4><ul><li>需要决定哪些指标属于「全局摘要」</li><li>顶部摘要会占用一定的垂直空间</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>

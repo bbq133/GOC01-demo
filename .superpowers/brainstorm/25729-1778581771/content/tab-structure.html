@@ -1,0 +1,72 @@
+<h2>Tab 页签划分 — 你想要几个 Tab？</h2>
+<p class="subtitle">当前已知的板块有：广告表现概览（含经营成果 + 广告层级）、日报、周报、人群、素材表现。<br>请选择你倾向的 Tab 分组方式：</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>5 个独立 Tab — 每个板块一个</h3>
+      <p>每个业务板块各自独占一个 Tab，结构最清晰，后续新增板块直接加 Tab。</p>
+      <div style="margin-top:12px; background:#1a1a2e; border-radius:8px; padding:16px; font-size:13px; color:#999;">
+        <div style="display:flex; gap:2px; margin-bottom:16px; overflow-x:auto;">
+          <span style="background:#7c3aed; color:#fff; padding:8px 16px; border-radius:8px 8px 0 0; font-size:12px; white-space:nowrap;">📊 广告表现</span>
+          <span style="background:#252540; color:#888; padding:8px 16px; border-radius:8px 8px 0 0; font-size:12px; white-space:nowrap;">📋 日报</span>
+          <span style="background:#252540; color:#888; padding:8px 16px; border-radius:8px 8px 0 0; font-size:12px; white-space:nowrap;">📅 周报</span>
+          <span style="background:#252540; color:#888; padding:8px 16px; border-radius:8px 8px 0 0; font-size:12px; white-space:nowrap;">👥 人群</span>
+          <span style="background:#252540; color:#888; padding:8px 16px; border-radius:8px 8px 0 0; font-size:12px; white-space:nowrap;">🎨 素材表现</span>
+        </div>
+        <div style="background:#252540; border-radius:0 0 6px 6px; padding:20px; text-align:center; color:#666; font-size:12px;">
+          ← 当前 Tab 的完整内容区域 →
+        </div>
+      </div>
+      <div style="margin-top:8px; font-size:12px; color:#888;">
+        Tab 列表：广告表现 · 日报 · 周报 · 人群 · 素材表现
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>合并相近板块 — 减少 Tab 数量</h3>
+      <p>将日报/周报合并为「报告」，将相关板块归类，减少 Tab 总数到 3-4 个。</p>
+      <div style="margin-top:12px; background:#1a1a2e; border-radius:8px; padding:16px; font-size:13px; color:#999;">
+        <div style="display:flex; gap:2px; margin-bottom:16px;">
+          <span style="background:#7c3aed; color:#fff; padding:8px 16px; border-radius:8px 8px 0 0; font-size:12px; white-space:nowrap;">📊 广告表现</span>
+          <span style="background:#252540; color:#888; padding:8px 16px; border-radius:8px 8px 0 0; font-size:12px; white-space:nowrap;">📋 报告</span>
+          <span style="background:#252540; color:#888; padding:8px 16px; border-radius:8px 8px 0 0; font-size:12px; white-space:nowrap;">👥 人群</span>
+          <span style="background:#252540; color:#888; padding:8px 16px; border-radius:8px 8px 0 0; font-size:12px; white-space:nowrap;">🎨 素材表现</span>
+        </div>
+        <div style="background:#252540; border-radius:0 0 6px 6px; padding:16px; color:#666; font-size:12px;">
+          <div style="margin-bottom:8px; color:#aaa; font-size:11px;">「报告」Tab 内部切换：</div>
+          <div style="display:flex; gap:8px;">
+            <span style="background:#33333388; padding:4px 10px; border-radius:4px; font-size:11px; color:#a78bfa;">日报</span>
+            <span style="background:#33333888; padding:4px 10px; border-radius:4px; font-size:11px; color:#888;">周报</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:8px; font-size:12px; color:#888;">
+        Tab 列表：广告表现 · 报告（含日报/周报子切换） · 人群 · 素材表现
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>自定义分组 — 你来决定</h3>
+      <p>如果以上两种分法都不满意，在终端中告诉我你想要的 Tab 名称和分组方式。</p>
+      <div style="margin-top:12px; background:#1a1a2e; border-radius:8px; padding:16px; font-size:13px; color:#999; text-align:center;">
+        <div style="display:flex; gap:2px; margin-bottom:16px; justify-content:center;">
+          <span style="background:#252540; color:#888; padding:8px 16px; border-radius:8px 8px 0 0; font-size:12px;">Tab ?</span>
+          <span style="background:#252540; color:#888; padding:8px 16px; border-radius:8px 8px 0 0; font-size:12px;">Tab ?</span>
+          <span style="background:#252540; color:#888; padding:8px 16px; border-radius:8px 8px 0 0; font-size:12px;">Tab ?</span>
+          <span style="background:#252540; color:#666; padding:8px 16px; border-radius:8px 8px 0 0; font-size:12px;">...</span>
+        </div>
+        <div style="color:#666; font-size:12px; padding:12px;">
+          💬 在终端中描述你的分组想法
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

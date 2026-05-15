@@ -1,0 +1,26 @@
+<h2>你倾向于哪种引导流程（Onboarding Flow）？</h2>
+<p class="subtitle">根据 PRD，我们需要完成：基础信息填写、Google 账号授权（GA、BQ 必填，Ads、GTM 可选）以及等待数据同步与模型训练。</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>基础信息 -> 数据源授权 -> 完成与同步</h3>
+      <p>最常见的 3 步法：先填名字/区域/产品线，再做 Google 授权，最后展示进度条。符合常规认知，先易后难。</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>授权先行 -> 基础信息 -> 完成与同步</h3>
+      <p>先让用户搞定最难的 Google 授权（因为这是核心阻碍点），然后再补充项目名称等简单信息。适合强依赖数据的工具。</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>细分向导（向导式，每页一个重点）</h3>
+      <p>例如：1. 命名项目 -> 2. 选择区域与产品线 -> 3. GA4 授权 -> 4. Google Ads 授权 -> 5. 创建并拉取数据。适合降低单页认知负荷。</p>
+    </div>
+  </div>
+</div>
